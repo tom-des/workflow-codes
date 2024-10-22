@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workflow.codes</title>
+</head>
+
+<header>
+
+    <!-- General Styles -->
+
+    <style>
+        * {
+            transition: 0.25s;
+        }
+
+        @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            width: 100%;
+            flex-direction: column;
+            background-color: #1a1a1a;
+            color: #f2f2f2;
+            font-family: 'Anonymous Pro', monospace;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        a,
+        a:visited {
+            color: #f2f2f2;
+        }
+
+        a:hover {
+            background-color: #f2f2f2;
+            border-radius: 3px;
+            outline: 3px solid #f2f2f2;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+    </style>
+
+    <!-- Navigation -->
+
+    <div class="menu-toggle navigate">
+        🧭
+    </div>
+    <nav style="display:none;" class="nav-menu">
+        <ul>
+            <li><a class="nav" data-page="home" href="#">Home</a></li>
+            <li><a class="nav" data-page="about" href="#about">About Me</a></li>
+            <li><a class="nav" data-page="contact" href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Navigation Styles -->
+
+    <style>
+        .menu-toggle.navigate:hover {
+            transform: rotate(-47deg);
+        }
+
+        .menu-toggle {
+            padding: 0px;
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            cursor: pointer;
+            color: #f2f2f2;
+            font-size: 1.75em;
+            z-index: 1000;
+        }
+
+        .nav-menu {
+            font-size: 1.5em;
+            opacity: 0;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #1a1a1a;
+            z-index: 200;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        .nav-menu a {
+            color: #f2f2f2;
+            text-decoration: none;
+        }
+
+        .nav-menu a:hover {
+            background-color: #f2f2f2;
+            color: #1a1a1a;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .nav-menu li {
+            padding: 15px;
+        }
+
+        .nav-menu.open {
+            opacity: 1;
+        }
+    </style>
+
+</header>
+
+<!--  BEGIN PAGES -->
+
+<body>
+
+    <!-- Page Styles -->
+
+    <style>
+        .primary-button {
+            border: 2px solid #f2f2f2;
+            color: #f2f2f2;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .primary-button:hover {
+            background-color: #f2f2f2;
+            color: #1a1a1a;
+            cursor: pointer;
+        }
+
+        .page-container {
+            opacity: 0;
+            margin: 20px;
+            flex-direction: column;
+            max-width: 500px;
+        }
+
+        .page-container.active-page {
+            opacity: 1;
+            transition: opacity .75s;
+        }
+
+        .page-container.centered {
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+    <!-- Home Page -->
+
+    <div style="display:flex;" class="page-container centered active-page" id="home">
+        <h1 style="margin:0;">Workflow.codes</h1>
+        <p class="subtitle typewriter">Less work, more flow.</p>
+        <a class="primary-button nav" data-page="about" href="#about">About Me</a>
+    </div>
+
+    <!-- Home Page Scripts -->
+
+    <script>
+        function adjustTypewriter(textElement) {
+            const text = textElement.innerText;
+            const steps = text.length;
+            const width = `${steps}ch`;
+            const baseDurationPerChar = 0.1;
+            const duration = (steps * baseDurationPerChar).toFixed(2) + 's';
+
+            textElement.style.setProperty('--steps', steps);
+            textElement.style.setProperty('--width', width);
+            textElement.style.setProperty('--duration', duration);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const typewriterElements = document.querySelectorAll('.typewriter');
+            typewriterElements.forEach(adjustTypewriter);
+        });
+    </script>
+
+    <!-- Home Page Styles -->
+
+    <style>
+        .subtitle {
+            font-size: 1.5em;
+        }
+
+        .typewriter {
+            border-right: 2px solid rgba(255, 255, 255, .75);
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: typewriter var(--duration) steps(var(--steps)) 1s 1 normal both,
+                blinkTextCursor 500ms steps(21) 6 forwards;
+        }
+
+        @keyframes typewriter {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: var(--width);
+            }
+        }
+
+        @keyframes blinkTextCursor {
+            0% {
+                border-right-color: rgba(255, 255, 255, .75);
+            }
+
+            100% {
+                border-right-color: transparent;
+            }
+        }
+    </style>
+
+    <!-- About Page -->
+
+    <div style="display:none;" class="page-container" id="about">
+        <h1>About Me</h1>
+        <span class="profile-picture">
+            <img class="" src="/images/Tom-DeSimone.png" alt="Tom DeSimone">
+        </span>
+        <p>My name is Tom DeSimone.</p>
+        <p>I'm a developer whose mission is to improve your your workflows by helping you leverage technology.</p>
+        <p>My motto is that computers should do computer work so that humans are free to do the more interesting work
+            humans do best.</p>
+        <p>Want to learn more about how I might be able to help you? Contact me today to schedule a free consultation.
+        </p>
+        <a class="primary-button nav centered" data-page="contact" href="#contact">Let's Connect</a>
+    </div>
+
+    <!-- About Page Scripts -->
+
+    <script>
+        document.querySelectorAll('.profile-picture').forEach(item => {
+            item.addEventListener('click', event => {
+                item.classList.add('ouch');
+                setTimeout(() => {
+                    item.classList.remove('ouch');
+                    item.classList.add('just-kidding');
+                    setTimeout(() => {
+                        item.classList.remove('just-kidding');
+                    }, 2000);
+                }, 2000);
+            });
+        });
+    </script>
+
+
+    <!-- About Page Styles -->
+
+    <style>
+        .profile-picture img {
+            display: block;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin: 20px;
+        }
+
+        .active-page .ouch.profile-picture:hover::after,
+        .active-page .ouch.profile-picture::after {
+            content: "😲 Ouch!";
+            border: 1px solid #1a1a1a;
+        }
+
+        .active-page .ouch.profile-picture {
+            transition: 1s;
+            scale: .9;
+        }
+
+        .active-page .just-kidding.profile-picture:hover::after,
+        .active-page .just-kidding.profile-picture::after {
+            content: "Just kidding! 😉";
+        }
+
+        .profile-picture {
+            opacity: 0;
+        }
+
+        .active-page .profile-picture {
+            opacity: 1;
+            position: relative;
+            display: inline-block;
+            width: 150px;
+            transition: 1s;
+            scale: 1.2;
+        }
+
+        .profile-picture:hover {
+            scale: 1.3;
+            cursor: pointer;
+        }
+
+        .active-page .profile-picture:hover::after {
+            content: "🤓 I'm Tom.";
+        }
+
+        .profile-picture::after {
+            opacity: 0;
+        }
+
+        .active-page .profile-picture::after {
+            scale: 1.1;
+            opacity: 1;
+            content: '👋 Hello!';
+            position: absolute;
+            top: 25%;
+            left: 160%;
+            transform: translate(-50%, -50%);
+            background-color: #f2f2f2;
+            color: #1a1a1a;
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 20px 20px 20px 0;
+            white-space: nowrap;
+        }
+
+        a.centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        .copy-trigger {
+            cursor: pointer;
+        }
+        /* if body has descendant with .ouch class, then apply this style to body  with has() selector */
+        body:has(.ouch) {
+            background-color: #f2f2f2;
+            color: #1a1a1a;
+        
+        }
+
+    </style>
+
+    <!-- Contact Page -->
+
+    <div style="display:none;" class="page-container centered" id="contact">
+        <h1>Contact</h1>
+        <p>Reach out via email:</p>
+        <p><span data-copy-text="tom@workflow.codes" class="my-email copy-trigger">tom@workflow.codes 📋</span></p>
+        <a class="primary-button" href="mailto:tom@workflow.codes?subject=Workflow.codes contact">Open Email</a>
+    </div>
+
+    <!-- Contact Page Scripts -->
+
+    <script>
+        document.querySelectorAll('.copy-trigger').forEach(item => {
+            item.addEventListener('click', event => {
+                const text = item.getAttribute('data-copy-text');
+                navigator.clipboard.writeText(text);
+                item.innerHTML = ' 🎉 Copied! ';
+                setTimeout(() => {
+                    item.innerHTML = 'tom@workflow.codes 📋';
+                }, 2000);
+            });
+        });
+    </script>
+
+    <!-- Contact Page Styles -->
+
+    <style>
+        .my-email {
+            font-size: 1.25em;
+            margin: 0;
+        }
+
+        .my-email:hover {
+            background-color: #f2f2f2;
+            color: #1a1a1a;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+
+    <!-- END PAGES -->
+
+    <!-- General Scripts -->
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.nav-menu');
+        const navLinks = document.querySelectorAll('a.nav');
+        const navigateIcon = '🧭';
+        const backIcon = '⏪';
+
+        function openNav() {
+            nav.style.display = 'flex';
+            setTimeout(() => {
+                nav.classList.add('open');
+            }, 10);
+            menuToggle.classList.remove('navigate');
+            menuToggle.innerHTML = backIcon;
+        }
+
+        function closeNav() {
+            nav.style.display = 'none';
+            nav.classList.remove('open');
+            menuToggle.classList.add('navigate');
+            menuToggle.innerHTML = navigateIcon;
+        }
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page-container').forEach(container => {
+                if (container.getAttribute('id') === pageId) {
+                    container.style.display = 'flex';
+                    setTimeout(() => {
+                        container.classList.add('active-page');
+                    }, 10);
+                } else {
+                    container.style.display = 'none';
+                    container.classList.remove('active-page');
+                }
+            });
+        }
+
+        menuToggle.addEventListener('click', () => {
+            if (nav.classList.contains('open')) {
+                closeNav();
+            } else {
+                openNav();
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const page = e.target.getAttribute('data-page');
+                showPage(page);
+                closeNav();
+            });
+        });
+
+       
+
+        window.addEventListener('hashchange', function () {
+    const page = window.location.hash.replace('#', '');
+    showPage(page);
+});
+
+function handleHashNavigation() {
+    const page = window.location.hash.replace('#', '');
+    if (page) {
+        showPage(page);
+    } else {
+        showPage('home'); 
+    }
+}
+
+window.addEventListener('hashchange', function () {
+    handleHashNavigation();
+});
+
+window.addEventListener('DOMContentLoaded', function () {
+    handleHashNavigation();
+});
+
+
+    </script>
+</body>
+
+</html>
