@@ -66,6 +66,12 @@
     <!-- Navigation Styles -->
 
     <style>
+
+        .menu-toggle.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
         .scroll-lock {
             overflow: hidden;
         }
@@ -502,28 +508,24 @@
 
         window.addEventListener("scroll", () => {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            let maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
-
-            if (scrollTop <= 10 || scrollTop >= maxScrollTop - 10) {
-                return; // Prevent toggling near the top or bottom
+            let documentHeight = document.documentElement.scrollHeight;
+            let windowHeight = window.innerHeight;
+            let distanceFromBottom = documentHeight - (scrollTop + windowHeight);
+            if (Math.abs(scrollTop - lastScrollTop) < 20) {
+                return;
             }
 
-            if (scrollTop > lastScrollTop) {
-                // Downscroll
-                element.style.opacity = 0;
-                setTimeout(() => {
-                    element.innerText = "";
-                }, 250);
+            if (scrollTop <= 50) {
+                element.classList.remove('hidden');
+            } else if (scrollTop > lastScrollTop || distanceFromBottom <= 50) {
+                // Downscroll or within 50 pixels from the bottom
+                element.classList.add('hidden');
             } else {
                 // Upscroll
-                element.innerText = navigateIcon;
-                element.style.opacity = 1;
+                element.classList.remove('hidden');
             }
-
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Prevent negative scroll values
         });
-
-
 
     </script>
 </body>
