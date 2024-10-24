@@ -66,6 +66,10 @@
     <!-- Navigation Styles -->
 
     <style>
+        .scroll-lock {
+            overflow: hidden;
+        }
+
         .menu-toggle.navigate:hover {
             transform: rotate(-47deg);
         }
@@ -156,6 +160,7 @@
         .page-container.active-page {
             opacity: 1;
             transition: opacity .75s;
+            padding: 20px;
         }
 
         .page-container.centered {
@@ -286,9 +291,30 @@
             scale: .9;
         }
 
+        body:has(.ouch) {
+            background-color: black;
+        }
+
         .active-page .just-kidding.profile-picture:hover::after,
         .active-page .just-kidding.profile-picture::after {
             content: "Just kidding! 😉";
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+
+            .active-page .just-kidding.profile-picture:hover::after,
+            .active-page .just-kidding.profile-picture::after {
+                content: "Just kidding! 😉";
+                font-size: 10px;
+                left: 150%;
+            }
+
+            body .active-page .profile-picture::after {
+                font-size: 12px;
+                left: 150%;
+            }
+
         }
 
         .profile-picture {
@@ -345,13 +371,6 @@
         .copy-trigger {
             cursor: pointer;
         }
-        /* if body has descendant with .ouch class, then apply this style to body  with has() selector */
-        body:has(.ouch) {
-            background-color: #f2f2f2;
-            color: #1a1a1a;
-        
-        }
-
     </style>
 
     <!-- Contact Page -->
@@ -404,11 +423,13 @@
         const navLinks = document.querySelectorAll('a.nav');
         const navigateIcon = '🧭';
         const backIcon = '⏪';
+        const body = document.body;
 
         function openNav() {
             nav.style.display = 'flex';
             setTimeout(() => {
                 nav.classList.add('open');
+                body.classList.add('scroll-lock');
             }, 10);
             menuToggle.classList.remove('navigate');
             menuToggle.innerHTML = backIcon;
@@ -418,6 +439,7 @@
             nav.style.display = 'none';
             nav.classList.remove('open');
             menuToggle.classList.add('navigate');
+            body.classList.remove('scroll-lock');
             menuToggle.innerHTML = navigateIcon;
         }
 
@@ -451,29 +473,50 @@
             });
         });
 
-       
+
 
         window.addEventListener('hashchange', function () {
-    const page = window.location.hash.replace('#', '');
-    showPage(page);
-});
+            const page = window.location.hash.replace('#', '');
+            showPage(page);
+        });
 
-function handleHashNavigation() {
-    const page = window.location.hash.replace('#', '');
-    if (page) {
-        showPage(page);
-    } else {
-        showPage('home'); 
-    }
-}
+        function handleHashNavigation() {
+            const page = window.location.hash.replace('#', '');
+            if (page) {
+                showPage(page);
+            } else {
+                showPage('home');
+            }
+        }
 
-window.addEventListener('hashchange', function () {
-    handleHashNavigation();
-});
+        window.addEventListener('hashchange', function () {
+            handleHashNavigation();
+        });
 
-window.addEventListener('DOMContentLoaded', function () {
-    handleHashNavigation();
-});
+        window.addEventListener('DOMContentLoaded', function () {
+            handleHashNavigation();
+        });
+
+        let lastScrollTop = 0; 
+        const element = document.querySelector(".menu-toggle.navigate"); 
+
+        window.addEventListener("scroll", () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                // Downscroll
+                element.style.opacity = 0;
+                setTimeout(() => {
+                    element.innerText = "";
+                }, 250);
+                
+            } else {
+                // Upscroll
+                element.innerText = navigateIcon;
+                element.style.opacity = 1; 
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Prevent negative scroll values
+        });
 
 
     </script>
