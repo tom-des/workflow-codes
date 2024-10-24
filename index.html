@@ -497,11 +497,16 @@
             handleHashNavigation();
         });
 
-        let lastScrollTop = 0; 
-        const element = document.querySelector(".menu-toggle.navigate"); 
+        let lastScrollTop = 0;
+        const element = document.querySelector(".menu-toggle.navigate");
 
         window.addEventListener("scroll", () => {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
+
+            if (scrollTop <= 10 || scrollTop >= maxScrollTop - 10) {
+                return; // Prevent toggling near the top or bottom
+            }
 
             if (scrollTop > lastScrollTop) {
                 // Downscroll
@@ -509,14 +514,15 @@
                 setTimeout(() => {
                     element.innerText = "";
                 }, 250);
-                
             } else {
                 // Upscroll
                 element.innerText = navigateIcon;
-                element.style.opacity = 1; 
+                element.style.opacity = 1;
             }
+
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Prevent negative scroll values
         });
+
 
 
     </script>
