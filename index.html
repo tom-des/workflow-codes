@@ -12,6 +12,13 @@
     <!-- General Styles -->
 
     <style>
+        /* Add this at the beginning of your CSS */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
         * {
             transition: 0.25s;
         }
@@ -66,7 +73,6 @@
     <!-- Navigation Styles -->
 
     <style>
-
         .menu-toggle.hidden {
             opacity: 0;
             pointer-events: none;
