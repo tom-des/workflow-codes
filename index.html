@@ -31,7 +31,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
             width: 100%;
             flex-direction: column;
             background-color: #1a1a1a;
@@ -164,7 +164,8 @@
 
         .page-container {
             opacity: 0;
-            margin: 20px;
+            /* margin: 20px; */
+             margin: 0;
             flex-direction: column;
             max-width: 500px;
         }
@@ -172,7 +173,8 @@
         .page-container.active-page {
             opacity: 1;
             transition: opacity .75s;
-            padding: 20px;
+            /* padding: 20px; */
+            padding: 10px;
         }
 
         .page-container.centered {
