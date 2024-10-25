@@ -14,9 +14,7 @@
 <header>
 
     <!-- General Styles -->
-
     <style>
-        /* Add this at the beginning of your CSS */
         *,
         *::before,
         *::after {
@@ -65,7 +63,7 @@
     <!-- Navigation -->
 
     <div class="menu-toggle navigate">
-        🧭
+        ⚙️
     </div>
     <nav style="display:none;" class="nav-menu">
         <ul>
@@ -87,18 +85,17 @@
             overflow: hidden;
         }
 
-        .menu-toggle.navigate:hover {
-            transform: rotate(-47deg);
-        }
+        /* .menu-toggle.navigate:hover {
+            transform: rotate(-90deg);
+        } */
 
         .menu-toggle {
-            padding: 0px;
             position: fixed;
-            top: 30px;
-            right: 30px;
+            top: 25px;
+            right: 40px;
             cursor: pointer;
             color: #f2f2f2;
-            font-size: 1.75em;
+            font-size: 35px;
             z-index: 1000;
         }
 
@@ -192,7 +189,7 @@
 
     <div style="display:flex;" class="page-container centered active-page" id="home">
         <h1 style="margin:0;">Workflow.codes</h1>
-        <p class="subtitle typewriter">Less work, more flow.</p>
+        <p class="subtitle typewriter">Less work, more flow</p>
         <a class="primary-button nav" data-page="about" href="#about">About Me</a>
     </div>
 
@@ -222,6 +219,8 @@
     <style>
         .subtitle {
             font-size: 1.5em;
+            /* color: #4AF626; */
+            font-family: 'Courier New', Courier, monospace;
         }
 
         .typewriter {
@@ -437,13 +436,16 @@
     <!-- General Scripts -->
 
     <script>
+
+        // Variables
         const menuToggle = document.querySelector('.menu-toggle');
         const nav = document.querySelector('.nav-menu');
         const navLinks = document.querySelectorAll('a.nav');
-        const navigateIcon = '🧭';
-        const backIcon = '⏪';
+        const navigateIcon = '⚙️';
+        const backIcon = '↩️';
         const body = document.body;
 
+        // Nav toggles
         function openNav() {
             nav.style.display = 'flex';
             setTimeout(() => {
@@ -462,6 +464,16 @@
             menuToggle.innerHTML = navigateIcon;
         }
 
+
+        menuToggle.addEventListener('click', () => {
+            if (nav.classList.contains('open')) {
+                closeNav();
+            } else {
+                openNav();
+            }
+        });
+
+        // Page toggles
         function showPage(pageId) {
             document.querySelectorAll('.page-container').forEach(container => {
                 if (container.getAttribute('id') === pageId) {
@@ -476,14 +488,6 @@
             });
         }
 
-        menuToggle.addEventListener('click', () => {
-            if (nav.classList.contains('open')) {
-                closeNav();
-            } else {
-                openNav();
-            }
-        });
-
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 const page = e.target.getAttribute('data-page');
@@ -492,8 +496,7 @@
             });
         });
 
-
-
+        // Hash navigation
         window.addEventListener('hashchange', function () {
             const page = window.location.hash.replace('#', '');
             showPage(page);
@@ -516,6 +519,7 @@
             handleHashNavigation();
         });
 
+        // Scroll menu visibility handling
         let lastScrollTop = 0;
         const element = document.querySelector(".menu-toggle.navigate");
 
@@ -527,17 +531,14 @@
             if (Math.abs(scrollTop - lastScrollTop) < 20) {
                 return;
             }
-
             if (scrollTop <= 50) {
                 element.classList.remove('hidden');
             } else if (scrollTop > lastScrollTop || distanceFromBottom <= 50) {
-                // Downscroll or within 50 pixels from the bottom
                 element.classList.add('hidden');
             } else {
-                // Upscroll
                 element.classList.remove('hidden');
             }
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Prevent negative scroll values
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
 
     </script>
