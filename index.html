@@ -2,24 +2,71 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Workflow.codes</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
     <script>
-        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-        posthog.init('phc_yKf45QcGooFjFjWLiD9pG6l1cGYwkAMglUoY9trj4ov', {
-            api_host: 'https://us.i.posthog.com',
-            person_profiles: 'always', 
-        })
+        !(function (t, e) {
+            var o, n, p, r;
+            e.__SV ||
+                ((window.posthog = e),
+                    (e._i = []),
+                    (e.init = function (i, s, a) {
+                        function g(t, e) {
+                            var o = e.split(".");
+                            2 == o.length && ((t = t[o[0]]), (e = o[1])),
+                                (t[e] = function () {
+                                    t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+                                });
+                        }
+                        ((p = t.createElement("script")).type = "text/javascript"),
+                            (p.crossOrigin = "anonymous"),
+                            (p.async = !0),
+                            (p.src =
+                                s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") +
+                                "/static/array.js"),
+                            (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(
+                                p,
+                                r
+                            );
+                        var u = e;
+                        for (
+                            void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
+                            u.people = u.people || [],
+                            u.toString = function (t) {
+                                var e = "posthog";
+                                return (
+                                    "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e
+                                );
+                            },
+                            u.people.toString = function () {
+                                return u.toString(1) + ".people (stub)";
+                            },
+                            o =
+                            "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId".split(
+                                " "
+                            ),
+                            n = 0;
+                            n < o.length;
+                            n++
+                        )
+                            g(u, o[n]);
+                        e._i.push([i, s, a]);
+                    }),
+                    (e.__SV = 1));
+        })(document, window.posthog || []);
+        posthog.init("phc_yKf45QcGooFjFjWLiD9pG6l1cGYwkAMglUoY9trj4ov", {
+            api_host: "https://us.i.posthog.com",
+            person_profiles: "always",
+        });
     </script>
 </head>
 
 <header>
-
     <!-- General Styles -->
     <style>
         *,
@@ -46,7 +93,7 @@
             flex-direction: column;
             background-color: #1a1a1a;
             color: #f2f2f2;
-            font-family: 'Anonymous Pro', monospace;
+            font-family: "Anonymous Pro", monospace;
         }
 
         h1 {
@@ -69,14 +116,13 @@
 
     <!-- Navigation -->
 
-    <div class="menu-toggle navigate">
-        ⚙️
-    </div>
-    <nav style="display:none;" class="nav-menu">
+    <div class="menu-toggle navigate">⚙️</div>
+    <nav style="display: none" class="nav-menu">
         <ul>
             <li><a class="nav" data-page="home" href="#">Home</a></li>
             <li><a class="nav" data-page="about" href="#about">About Me</a></li>
             <li><a class="nav" data-page="contact" href="#contact">Contact</a></li>
+            <li><a class="nav" data-page="subscribe" href="#subscribe">Subscribe</a></li>
         </ul>
     </nav>
 
@@ -146,13 +192,11 @@
             opacity: 1;
         }
     </style>
-
 </header>
 
 <!--  BEGIN PAGES -->
 
 <body>
-
     <!-- Page Styles -->
 
     <style>
@@ -181,7 +225,7 @@
 
         .page-container.active-page {
             opacity: 1;
-            transition: opacity .75s;
+            transition: opacity 0.75s;
             /* padding: 20px; */
             padding: 10px;
         }
@@ -194,8 +238,8 @@
 
     <!-- Home Page -->
 
-    <div style="display:flex;" class="page-container centered active-page" id="home">
-        <h1 style="margin:0;">Workflow.codes</h1>
+    <div style="display: flex" class="page-container centered active-page" id="home">
+        <h1 style="margin: 0">Workflow.codes</h1>
         <p class="subtitle typewriter">Less work, more flow</p>
         <a class="primary-button nav" data-page="about" href="#about">About Me</a>
     </div>
@@ -208,15 +252,15 @@
             const steps = text.length;
             const width = `${steps}ch`;
             const baseDurationPerChar = 0.1;
-            const duration = (steps * baseDurationPerChar).toFixed(2) + 's';
+            const duration = (steps * baseDurationPerChar).toFixed(2) + "s";
 
-            textElement.style.setProperty('--steps', steps);
-            textElement.style.setProperty('--width', width);
-            textElement.style.setProperty('--duration', duration);
+            textElement.style.setProperty("--steps", steps);
+            textElement.style.setProperty("--width", width);
+            textElement.style.setProperty("--duration", duration);
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-            const typewriterElements = document.querySelectorAll('.typewriter');
+            const typewriterElements = document.querySelectorAll(".typewriter");
             typewriterElements.forEach(adjustTypewriter);
         });
     </script>
@@ -227,11 +271,11 @@
         .subtitle {
             font-size: 1.5em;
             /* color: #4AF626; */
-            font-family: 'Courier New', Courier, monospace;
+            font-family: "Courier New", Courier, monospace;
         }
 
         .typewriter {
-            border-right: 2px solid rgba(255, 255, 255, .75);
+            border-right: 2px solid rgba(255, 255, 255, 0.75);
             white-space: nowrap;
             overflow: hidden;
             display: inline-block;
@@ -251,7 +295,7 @@
 
         @keyframes blinkTextCursor {
             0% {
-                border-right-color: rgba(255, 255, 255, .75);
+                border-right-color: rgba(255, 255, 255, 0.75);
             }
 
             100% {
@@ -262,16 +306,23 @@
 
     <!-- About Page -->
 
-    <div style="display:none;" class="page-container" id="about">
+    <div style="display: none" class="page-container" id="about">
         <h1>About Me</h1>
         <span class="profile-picture">
-            <img class="" src="/images/Tom-DeSimone.png" alt="Tom DeSimone">
+            <img class="" src="/images/Tom-DeSimone.png" alt="Tom DeSimone" />
         </span>
         <p>My name is Tom DeSimone.</p>
-        <p>I'm a developer whose mission is to improve your workflows by helping you leverage technology.</p>
-        <p>My motto is that computers should do computer work so that humans are free to do the more interesting work
-            humans do best.</p>
-        <p>Want to learn more about how I might be able to help you? Contact me today to schedule a free consultation.
+        <p>
+            I'm a developer whose mission is to improve your workflows by helping
+            you leverage technology.
+        </p>
+        <p>
+            My motto is that computers should do computer work so that humans are
+            free to do the more interesting work humans do best.
+        </p>
+        <p>
+            Want to learn more about how I might be able to help you? Contact me
+            today to schedule a free consultation.
         </p>
         <a class="primary-button nav centered" data-page="contact" href="#contact">Let's Connect</a>
     </div>
@@ -279,20 +330,19 @@
     <!-- About Page Scripts -->
 
     <script>
-        document.querySelectorAll('.profile-picture').forEach(item => {
-            item.addEventListener('click', event => {
-                item.classList.add('ouch');
+        document.querySelectorAll(".profile-picture").forEach((item) => {
+            item.addEventListener("click", (event) => {
+                item.classList.add("ouch");
                 setTimeout(() => {
-                    item.classList.remove('ouch');
-                    item.classList.add('just-kidding');
+                    item.classList.remove("ouch");
+                    item.classList.add("just-kidding");
                     setTimeout(() => {
-                        item.classList.remove('just-kidding');
+                        item.classList.remove("just-kidding");
                     }, 2000);
                 }, 2000);
             });
         });
     </script>
-
 
     <!-- About Page Styles -->
 
@@ -313,7 +363,7 @@
 
         .active-page .ouch.profile-picture {
             transition: 1s;
-            scale: .9;
+            scale: 0.9;
         }
 
         body:has(.ouch) {
@@ -339,7 +389,6 @@
                 font-size: 12px;
                 left: 150%;
             }
-
         }
 
         .profile-picture {
@@ -371,7 +420,7 @@
         .active-page .profile-picture::after {
             scale: 1.1;
             opacity: 1;
-            content: '👋 Hello!';
+            content: "👋 Hello!";
             position: absolute;
             top: 25%;
             left: 160%;
@@ -400,23 +449,25 @@
 
     <!-- Contact Page -->
 
-    <div style="display:none;" class="page-container centered" id="contact">
+    <div style="display: none" class="page-container centered" id="contact">
         <h1>Contact</h1>
         <p>Reach out via email:</p>
-        <p><span data-copy-text="tom@workflow.codes" class="my-email copy-trigger">tom@workflow.codes 📋</span></p>
+        <p>
+            <span data-copy-text="tom@workflow.codes" class="my-email copy-trigger">tom@workflow.codes 📋</span>
+        </p>
         <a class="primary-button" href="mailto:tom@workflow.codes?subject=Workflow.codes contact">Open Email</a>
     </div>
 
     <!-- Contact Page Scripts -->
 
     <script>
-        document.querySelectorAll('.copy-trigger').forEach(item => {
-            item.addEventListener('click', event => {
-                const text = item.getAttribute('data-copy-text');
+        document.querySelectorAll(".copy-trigger").forEach((item) => {
+            item.addEventListener("click", (event) => {
+                const text = item.getAttribute("data-copy-text");
                 navigator.clipboard.writeText(text);
-                item.innerHTML = ' 🎉 Copied! ';
+                item.innerHTML = " 🎉 Copied! ";
                 setTimeout(() => {
-                    item.innerHTML = 'tom@workflow.codes 📋';
+                    item.innerHTML = "tom@workflow.codes 📋";
                 }, 2000);
             });
         });
@@ -440,47 +491,214 @@
 
     <!-- Privacy Page -->
 
-    <div style="display:none;" class="page-container centered" id="privacy">
+    <div style="display: none" class="page-container centered" id="privacy">
         <h1>Privacy Policy</h1>
-        <p>We do not collect or store any data on this website, or in any extension or add-on we support. If you have any questions, please don't hesitate to  <a data-page="contact" href="#contact">reach out</a>. </p> 
+        <p>
+            We do not collect or store any data on this website, or in any extension
+            or add-on we support. If you have any questions, please don't hesitate
+            to <a data-page="contact" href="#contact">reach out</a>.
+        </p>
     </div>
+
+    <!-- Subscribe Page -->
+
+    <div style="display: none" class="page-container centered" id="subscribe">
+        <h1>Subscribe</h1>
+
+        <div id="mc_embed_shell">
+            <style>
+                #subscribe {
+                    display: flex;
+                    color: #f2f2f2;
+                }
+                #subscribe .mc-field-group.mc-text input {
+                    padding: 10px;
+                    margin: 10px 15px;
+                    font-size: 1em;
+                    font-family: "Anonymous Pro", monospace;
+                    width: 100%;
+                    border-radius: 5px;
+                }
+
+                #subscribe input[type="submit"] {
+                    margin: 10px 15px;
+                    border: 2px solid #f2f2f2;
+                    color: #f2f2f2;
+                    background-color: #1a1a1a;
+                    font-size: 1em;
+                }
+
+                #mc_embed_signup_scroll div {
+                    margin: 15px;
+                }
+
+                #subscribe input[type="submit"]:hover {
+                    border: 2px solid #f2f2f2;
+                    color: #1a1a1a;
+                    background-color: #f2f2f2;
+                }
+
+                #mc_embed_signup div.mce_inline_error {
+                    color: #f2f2f2;
+                    border: 2px solid #f2f2f2;
+                    padding: 5px;
+                    border-radius: 5px;
+                    width: 100%;
+                    text-align: center;
+                    margin-left: 15px;
+                    font-weight: normal;
+                }
+
+                #mce-responses {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                #mce-success-response {
+                    background-color: #f2f2f2;
+                    color: #1a1a1a;
+
+                    padding: 10px;
+                    border-radius: 5px;
+                    max-width: 300px;
+                    font-size: 1em;
+                }
+
+                #mc-embedded-subscribe-form .mc-text label {
+                    display: block;
+                    margin-bottom: 10px;
+                    font-weight: bold;
+                }
+
+                .asterisk {
+                    color: red;
+                }
+
+            
+                input[type="radio"] {
+                    transform: scale(1.5);
+                    margin: 10px;
+                }
+
+                #subscription-groups li {
+                    list-style-type: none;
+                }
+            </style>
+
+
+
+            <div id="mc_embed_signup">
+                <form
+                    action="https://codes.us20.list-manage.com/subscribe/post?u=5459e0657f00474308c97b616&amp;id=7784c0e9b3&amp;f_id=0057c3e1f0"
+                    method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+                    target="_blank">
+                    <div id="mc_embed_signup_scroll">
+                        <div class="mc-field-group mc-text">
+                            <label for="mce-EMAIL">Email Address
+                                <span style="color: red" class="asterisk">*</span></label><input type="email"
+                                name="EMAIL" class="required email" id="mce-EMAIL" required="" value=""
+                                placeholder="subby@subscriber.com" />
+                        </div>
+                        <div class="mc-field-group mc-text">
+                            <label for="mce-FNAME">First Name
+                                <span style="color: red" class="asterisk">*</span></label><input type="text"
+                                name="FNAME" class="text" id="mce-FNAME" value="" placeholder="Subby" />
+                        </div>
+                        <div id="subscription-groups" class="mc-field-group input-group">
+                            <strong>Which emails would you like?</strong>
+                            <ul>
+                                <li>
+                                    <!-- set default to true -->
+                                    <input type="radio" name="group[2]" id="mce-group[2]-2-0" value="8" checked="checked" /><label
+                                        for="mce-group[2]-2-0"> Send me everything! 🤓 </label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="group[2]" id="mce-group[2]-2-1" value="16" /><label
+                                        for="mce-group[2]-2-1"> Send me weekly tips 📅 </label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="group[2]" id="mce-group[2]-2-2" value="32" /><label
+                                        for="mce-group[2]-2-2"> Send me monthly round-ups 📰 </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display: none"></div>
+                            <div class="response" id="mce-success-response" style="display: none"></div>
+                        </div>
+                        <div aria-hidden="true" style="position: absolute; left: -5000px">
+                            <input type="text" name="b_5459e0657f00474308c97b616_7784c0e9b3" tabindex="-1" value="" />
+                        </div>
+                        <div class="clear">
+                            <input class="primary-button" type="submit" name="subscribe" id="mc-embedded-subscribe"
+                                value="Subscribe" />
+                        </div>
+                    </div>
+                </form>
+                <script></script>
+            </div>
+            <script type="text/javascript"
+            src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+        <script type="text/javascript">
+            (function ($) {
+                window.fnames = new Array();
+                window.ftypes = new Array();
+                fnames[0] = "EMAIL";
+                ftypes[0] = "email";
+                fnames[1] = "FNAME";
+                ftypes[1] = "text";
+                fnames[2] = "LNAME";
+                ftypes[2] = "text";
+                fnames[3] = "ADDRESS";
+                ftypes[3] = "address";
+                fnames[4] = "PHONE";
+                ftypes[4] = "phone";
+                fnames[5] = "BIRTHDAY";
+                ftypes[5] = "birthday";
+                fnames[6] = "COMPANY";
+                ftypes[6] = "text";
+            })(jQuery);
+            var $mcj = jQuery.noConflict(true);
+        </script>
+        </div>
+    </div>
+
 
     <!-- END PAGES -->
 
     <!-- General Scripts -->
 
     <script>
-
         // Variables
-        const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('.nav-menu');
-        const navLinks = document.querySelectorAll('a.nav');
-        const navigateIcon = '⚙️';
-        const backIcon = '↩️';
+        const menuToggle = document.querySelector(".menu-toggle");
+        const nav = document.querySelector(".nav-menu");
+        const navLinks = document.querySelectorAll("a.nav");
+        const navigateIcon = "⚙️";
+        const backIcon = "↩️";
         const body = document.body;
 
         // Nav toggles
         function openNav() {
-            nav.style.display = 'flex';
+            nav.style.display = "flex";
             setTimeout(() => {
-                nav.classList.add('open');
-                body.classList.add('scroll-lock');
+                nav.classList.add("open");
+                body.classList.add("scroll-lock");
             }, 10);
-            menuToggle.classList.remove('navigate');
+            menuToggle.classList.remove("navigate");
             menuToggle.innerHTML = backIcon;
         }
 
         function closeNav() {
-            nav.style.display = 'none';
-            nav.classList.remove('open');
-            menuToggle.classList.add('navigate');
-            body.classList.remove('scroll-lock');
+            nav.style.display = "none";
+            nav.classList.remove("open");
+            menuToggle.classList.add("navigate");
+            body.classList.remove("scroll-lock");
             menuToggle.innerHTML = navigateIcon;
         }
 
-
-        menuToggle.addEventListener('click', () => {
-            if (nav.classList.contains('open')) {
+        menuToggle.addEventListener("click", () => {
+            if (nav.classList.contains("open")) {
                 closeNav();
             } else {
                 openNav();
@@ -489,47 +707,47 @@
 
         // Page toggles
         function showPage(pageId) {
-            document.querySelectorAll('.page-container').forEach(container => {
-                if (container.getAttribute('id') === pageId) {
-                    container.style.display = 'flex';
+            document.querySelectorAll(".page-container").forEach((container) => {
+                if (container.getAttribute("id") === pageId) {
+                    container.style.display = "flex";
                     setTimeout(() => {
-                        container.classList.add('active-page');
+                        container.classList.add("active-page");
                     }, 10);
                 } else {
-                    container.style.display = 'none';
-                    container.classList.remove('active-page');
+                    container.style.display = "none";
+                    container.classList.remove("active-page");
                 }
             });
         }
 
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                const page = e.target.getAttribute('data-page');
+        navLinks.forEach((link) => {
+            link.addEventListener("click", (e) => {
+                const page = e.target.getAttribute("data-page");
                 showPage(page);
                 closeNav();
             });
         });
 
         // Hash navigation
-        window.addEventListener('hashchange', function () {
-            const page = window.location.hash.replace('#', '');
+        window.addEventListener("hashchange", function () {
+            const page = window.location.hash.replace("#", "");
             showPage(page);
         });
 
         function handleHashNavigation() {
-            const page = window.location.hash.replace('#', '');
+            const page = window.location.hash.replace("#", "");
             if (page) {
                 showPage(page);
             } else {
-                showPage('home');
+                showPage("home");
             }
         }
 
-        window.addEventListener('hashchange', function () {
+        window.addEventListener("hashchange", function () {
             handleHashNavigation();
         });
 
-        window.addEventListener('DOMContentLoaded', function () {
+        window.addEventListener("DOMContentLoaded", function () {
             handleHashNavigation();
         });
 
@@ -538,7 +756,8 @@
         const element = document.querySelector(".menu-toggle.navigate");
 
         window.addEventListener("scroll", () => {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let scrollTop =
+                window.pageYOffset || document.documentElement.scrollTop;
             let documentHeight = document.documentElement.scrollHeight;
             let windowHeight = window.innerHeight;
             let distanceFromBottom = documentHeight - (scrollTop + windowHeight);
@@ -546,15 +765,14 @@
                 return;
             }
             if (scrollTop <= 50) {
-                element.classList.remove('hidden');
+                element.classList.remove("hidden");
             } else if (scrollTop > lastScrollTop || distanceFromBottom <= 50) {
-                element.classList.add('hidden');
+                element.classList.add("hidden");
             } else {
-                element.classList.remove('hidden');
+                element.classList.remove("hidden");
             }
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
-
     </script>
 </body>
 
