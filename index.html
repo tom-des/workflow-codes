@@ -122,7 +122,9 @@
             <li><a class="nav" data-page="home" href="#">Home</a></li>
             <li><a class="nav" data-page="about" href="#about">About Me</a></li>
             <li><a class="nav" data-page="contact" href="#contact">Contact</a></li>
-            <li><a class="nav" data-page="subscribe" href="#subscribe">Subscribe</a></li>
+            <li>
+                <a class="nav" data-page="subscribe" href="#subscribe">Subscribe</a>
+            </li>
         </ul>
     </nav>
 
@@ -511,6 +513,7 @@
                     display: flex;
                     color: #f2f2f2;
                 }
+
                 #subscribe .mc-field-group.mc-text input {
                     padding: 10px;
                     margin: 10px 15px;
@@ -526,9 +529,10 @@
                     color: #f2f2f2;
                     background-color: #1a1a1a;
                     font-size: 1em;
+                    /* width: 200px; */
                 }
 
-                #mc_embed_signup_scroll div {
+                #mc_embed_signup_scroll div.mc-field-group {
                     margin: 15px;
                 }
 
@@ -554,11 +558,14 @@
                     justify-content: center;
                     align-items: center;
                 }
+                .clear {
+                    text-align: center;
+                }
 
-                #mce-success-response {
+                #mce-success-response,
+                #mce-error-response {
                     background-color: #f2f2f2;
                     color: #1a1a1a;
-
                     padding: 10px;
                     border-radius: 5px;
                     max-width: 300px;
@@ -575,18 +582,34 @@
                     color: red;
                 }
 
-            
                 input[type="radio"] {
-                    transform: scale(1.5);
-                    margin: 10px;
+                    transform: scale(1.25);
                 }
 
                 #subscription-groups li {
                     list-style-type: none;
+                    margin-bottom: 5px;
+                }
+
+                #subscription-groups label {
+                    font-size: 0.9em;
+                }
+
+                #subscription-groups ul {
+                    padding-inline-start: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+
+                /* when subscribe button is disabled make it light gray */
+                body #subscribe #mc-embedded-subscribe.loading,
+                body #subscribe #mc-embedded-subscribe.loading:hover {
+                    background-color: white;
+                    border: 2px solid white;
+                    color: #1a1a1a;
                 }
             </style>
-
-
 
             <div id="mc_embed_signup">
                 <form
@@ -610,16 +633,22 @@
                             <ul>
                                 <li>
                                     <!-- set default to true -->
-                                    <input type="radio" name="group[2]" id="mce-group[2]-2-0" value="8" checked="checked" /><label
-                                        for="mce-group[2]-2-0"> Send me everything! 🤓 </label>
+                                    <input type="radio" name="group[2]" id="mce-group[2]-2-0" value="8"
+                                        checked="checked" /><label for="mce-group[2]-2-0">
+                                        Send me everything! 🤓
+                                    </label>
                                 </li>
                                 <li>
                                     <input type="radio" name="group[2]" id="mce-group[2]-2-1" value="16" /><label
-                                        for="mce-group[2]-2-1"> Send me weekly tips 📅 </label>
+                                        for="mce-group[2]-2-1">
+                                        Send me weekly tips 📅
+                                    </label>
                                 </li>
                                 <li>
                                     <input type="radio" name="group[2]" id="mce-group[2]-2-2" value="32" /><label
-                                        for="mce-group[2]-2-2"> Send me monthly round-ups 📰 </label>
+                                        for="mce-group[2]-2-2">
+                                        Send me monthly round-ups 📰
+                                    </label>
                                 </li>
                             </ul>
                         </div>
@@ -638,32 +667,64 @@
                 </form>
                 <script></script>
             </div>
-            <script type="text/javascript"
-            src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-        <script type="text/javascript">
-            (function ($) {
-                window.fnames = new Array();
-                window.ftypes = new Array();
-                fnames[0] = "EMAIL";
-                ftypes[0] = "email";
-                fnames[1] = "FNAME";
-                ftypes[1] = "text";
-                fnames[2] = "LNAME";
-                ftypes[2] = "text";
-                fnames[3] = "ADDRESS";
-                ftypes[3] = "address";
-                fnames[4] = "PHONE";
-                ftypes[4] = "phone";
-                fnames[5] = "BIRTHDAY";
-                ftypes[5] = "birthday";
-                fnames[6] = "COMPANY";
-                ftypes[6] = "text";
-            })(jQuery);
-            var $mcj = jQuery.noConflict(true);
-        </script>
+            <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+            <script type="text/javascript">
+                (function ($) {
+                    window.fnames = new Array();
+                    window.ftypes = new Array();
+                    fnames[0] = "EMAIL";
+                    ftypes[0] = "email";
+                    fnames[1] = "FNAME";
+                    ftypes[1] = "text";
+                    fnames[2] = "LNAME";
+                    ftypes[2] = "text";
+                    fnames[3] = "ADDRESS";
+                    ftypes[3] = "address";
+                    fnames[4] = "PHONE";
+                    ftypes[4] = "phone";
+                    fnames[5] = "BIRTHDAY";
+                    ftypes[5] = "birthday";
+                    fnames[6] = "COMPANY";
+                    ftypes[6] = "text";
+                })(jQuery);
+                var $mcj = jQuery.noConflict(true);
+            </script>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const container = document.getElementById("mc-embedded-subscribe-form");
+                    const subButton = document.getElementById("mc-embedded-subscribe");
+
+                    if (!container || !subButton) {
+                        console.warn("Subscription form or button not found.");
+                        return;
+                    }
+
+                    const observer = new MutationObserver((mutations) => {
+
+                        for (const mutation of mutations) {
+                            if (
+                                mutation.target.classList.contains("response") ||
+                                mutation.target.classList.contains("mce_inline_error")
+                            ) {
+                                subButton.classList.remove("loading");
+                                subButton.value = "Subscribe";
+                                break; // Exit early if condition is met
+                            }
+                        }
+                    });
+
+                    observer.observe(container, { attributes: true, childList: true, subtree: true });
+
+                    subButton.addEventListener("click", () => {
+                        subButton.classList.add("loading");
+                        subButton.value = "Loading...";
+                    });
+                });
+            </script>
+
         </div>
     </div>
-
 
     <!-- END PAGES -->
 
